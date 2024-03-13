@@ -27,3 +27,6 @@ def exchange(request):
         url='API_TOKEN from ExchangeRate-API').json()
     currency = response.get('conversion_rates')
 ```
+
+# Preview
+![](https://github.com/jaynix01/CurrencyTrack/blob/main/preview.png)
