@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Exchange</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <form method='POST'>
+            {% csrf_token %}
+            <label for="input_Sum">Сумма*</label>
+            <input type="number" id="input_Sum" name="input_Sum" required min="0">
+            
+            <label for="from_cur">Отдаем*</label>
+            <select id="from_cur" name="from_cur">
+                {% for curr in currency %}
+                <option value="{{curr}}">{{curr}}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="to_cur">Получаем*</label>
+            <select id="to_cur" name="to_cur">
+                {% for curr in currency %}
+                <option value="{{curr}}">{{curr}}</option>
+                {% endfor %}
+            </select>
+            
+            <button type="submit">Расчитать</button>
+            <a href="/"> Очистить </a>
+            {% if output_sum %}
+            <output id="outputField"> {{output_sum}}</output>
+            {% endif %}
+        </form>
+    </div>
+    
+</body>
+</html>
