@@ -4,7 +4,7 @@ import requests
 
 def exchange(request):
     response = requests.get(
-        url='https://v6.exchangerate-api.com/v6/87f300f06572431eb5b8daa4/latest/USD').json()
+        url='API_TOKEN from ExchangeRate-API').json()
     currency = response.get('conversion_rates')
 
     if request.method == 'GET':
